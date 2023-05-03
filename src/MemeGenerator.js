@@ -17,6 +17,16 @@ export default function MemeGenerator() {
         <input id="top" placeholder="what's with all the" className="input" />
         <input id="bottom" placeholder="meme generators" />
       </div>
+      {/* GENERATE BUTTON */}
+      <button className="extraButton" data-test-id="generate-meme">
+        Generate meme &#x1F92A;
+      </button>
+      {/* START IMAGE */}
+      <img src="./logo.svg" alt="your meme" />
+      {/* DOWNLOAD BUTTON */}
+      <button className="extraButton" data-test-id="generate-meme">
+        Download meme &#x1F929;
+      </button>
     </div>
   );
 }
