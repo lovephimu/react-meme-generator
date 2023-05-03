@@ -1,10 +1,14 @@
 import './index.css';
-import React from 'react';
+import React, { useState } from 'react';
 
 export default function MemeGenerator() {
+  const [topText, setTopText] = useState('');
+  const [bottomText, setBottomText] = useState('');
+
   return (
     <div className="wrapper">
       <h1 className="title">React Meme Generator</h1>
+      {/* USER INPUT */}
       <div className="structureBox">
         {/* LABELS */}
         <div className="placeHolderBox">
@@ -14,8 +18,19 @@ export default function MemeGenerator() {
           <label htmlFor="top">Bottom text</label>
         </div>
         {/* TOP AND BOTTOM TEXT */}
-        <input id="top" placeholder="what's with all the" className="input" />
-        <input id="bottom" placeholder="meme generators" />
+        <input
+          id="top"
+          placeholder="what's with all the"
+          className="input"
+          value={topText}
+          onChange={(event) => setTopText(event.currentTarget.value)}
+        />
+        <input
+          id="bottom"
+          placeholder="meme generators"
+          value={bottomText}
+          onChange={(event) => setBottomText(event.currentTarget.value)}
+        />
       </div>
       {/* GENERATE BUTTON */}
       <button className="extraButton" data-test-id="generate-meme">
