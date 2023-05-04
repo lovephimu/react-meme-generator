@@ -15,6 +15,25 @@ export default function MemeGenerator() {
     );
   }
 
+  function handleDownload() {
+    const imageUrl = imgSrc;
+    const xhr = new XMLHttpRequest();
+    xhr.open('GET', imageUrl, true);
+    xhr.responseType = 'blob';
+    xhr.onload = function () {
+      if (this.status === 200) {
+        const blob = new Blob([this.response], { type: 'image/gif' });
+        const url = window.URL.createObjectURL(blob);
+        const link = document.createElement('a');
+        link.href = url;
+        link.download = `${template}.gif`; // set the desired file name and folder path for the image
+        link.click();
+        window.URL.revokeObjectURL(url);
+      }
+    };
+    xhr.send();
+  }
+
   return (
     <div className="wrapper">
       <h1 className="title">React Meme Generator</h1>
@@ -82,7 +101,13 @@ export default function MemeGenerator() {
       />
       <p>voilà</p>
       {/* DOWNLOAD BUTTON */}
-      <button className="extraButton" data-test-id="generate-meme">
+      <button
+        className="extraButton"
+        data-test-id="generate-meme"
+        onClick={() => {
+          handleDownload();
+        }}
+      >
         Download meme &#x1F929;
       </button>
       <pre>{!imgSrc ? ' ' : `from: ${imgSrc}`}</pre>
