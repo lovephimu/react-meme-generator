@@ -13,27 +13,19 @@ export default function MemeGenerator() {
     const encTopText = encodeURIComponent(topText);
     const encBottomText = encodeURIComponent(bottomText);
 
-    if (topText && bottomText) {
-      setImgSrc(
-        `${baseUrl.toLowerCase()}${
-          template ? template.toLowerCase() : 'buzz'
-        }/${encTopText.toLowerCase()}/${encBottomText.toLowerCase()}.gif`,
-      );
-    } else if (topText && !bottomText) {
-      if (!template) {
-        setTemplate('buzz');
-      }
+    if (topText && !bottomText) {
       setImgSrc(
         `${baseUrl.toLowerCase()}${
           template ? template.toLowerCase() : 'buzz'
         }/${encTopText.toLowerCase()}//.gif`,
       );
+    } else if (topText && bottomText) {
+      setImgSrc(
+        `${baseUrl.toLowerCase()}${
+          template ? template.toLowerCase() : 'buzz'
+        }/${encTopText.toLowerCase()}/${encBottomText.toLowerCase()}.gif`,
+      );
     }
-    //  else if (!topText && bottomText) {
-    //   setImgSrc(
-    //     `${baseUrl.toLowerCase()}/${template.toLowerCase()}//${bottomText.toLowerCase()}/}.gif`,
-    //   );
-    // }
   }
 
   function handleDownload() {
