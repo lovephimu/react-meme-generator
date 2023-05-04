@@ -10,6 +10,9 @@ export default function MemeGenerator() {
   const [imgSrc, setImgSrc] = useState('');
 
   function handleSubmit() {
+    if (!template) {
+      setTemplate('buzz');
+    }
     if (topText && bottomText) {
       setImgSrc(
         `${baseUrl.toLowerCase()}/${template.toLowerCase()}/${topText.toLowerCase()}/${bottomText.toLowerCase()}.gif`,
