@@ -77,9 +77,8 @@ export default function MemeGenerator() {
         />
         {/* TEMPLATE INPUT */}
         <div className="placeHolderBox">
-          <label htmlFor="template">Meme Template</label>
+          <label htmlFor="template">Meme template</label>
         </div>
-
         <input
           id="template"
           placeholder="buzz"
