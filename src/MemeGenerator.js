@@ -15,11 +15,17 @@ export default function MemeGenerator() {
     }
     if (topText && bottomText) {
       setImgSrc(
-        `${baseUrl.toLowerCase()}/${template.toLowerCase()}/${topText.toLowerCase()}/${bottomText.toLowerCase()}.gif`,
+        `${baseUrl.toLowerCase()}/${template.toLowerCase()}/${topText
+          .toLowerCase()
+          .replace('%', ' ')}/${bottomText
+          .toLowerCase()
+          .replace('%', ' ')}.gif`,
       );
     } else if (topText && !bottomText) {
       setImgSrc(
-        `${baseUrl.toLowerCase()}/${template.toLowerCase()}/${topText.toLowerCase()}//}.gif`,
+        `${baseUrl.toLowerCase()}/${template.toLowerCase()}/${topText
+          .toLowerCase()
+          .replace('%', ' ')}//.gif`,
       );
     }
     //  else if (!topText && bottomText) {
