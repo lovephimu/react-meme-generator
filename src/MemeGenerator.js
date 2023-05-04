@@ -61,7 +61,7 @@ export default function MemeGenerator() {
         <div className="placeHolderBox">
           <label htmlFor="bottom">Bottom text</label>
         </div>
-        {/* TOP AND BOTTOM TEXT */}
+
         <input
           id="top"
           placeholder="what's with all the"
@@ -75,8 +75,7 @@ export default function MemeGenerator() {
           value={bottomText}
           onChange={(event) => setBottomText(event.currentTarget.value)}
         />
-        {/* TEMPLATE INPUT */}
-        <label htmlFor="template">Meme template</label>
+
         <div className="placeHolderBox">
           <label htmlFor="template">Meme template</label>
         </div>
