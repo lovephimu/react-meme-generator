@@ -17,7 +17,9 @@ export default function MemeGenerator() {
       setImgSrc(
         `${baseUrl.toLowerCase()}${
           template ? template.toLowerCase() : 'buzz'
-        }/${topText.toLowerCase()}.gif`,
+        }/` +
+          encTopText.toLowerCase() +
+          '.gif',
       );
     } else if (topText && bottomText) {
       setImgSrc(
