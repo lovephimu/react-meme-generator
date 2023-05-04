@@ -115,7 +115,7 @@ export default function MemeGenerator() {
         alt="your meme"
       />
       <p>voilà</p>
-      {/* DOWNLOAD BUTTON */}
+
       <button
         className="extraButton"
         data-test-id="generate-meme"
