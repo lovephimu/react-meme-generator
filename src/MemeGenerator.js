@@ -10,9 +10,20 @@ export default function MemeGenerator() {
   const [imgSrc, setImgSrc] = useState('');
 
   function handleSubmit() {
-    setImgSrc(
-      `${baseUrl.toLowerCase()}/${template.toLowerCase()}/${topText.toLowerCase()}/${bottomText.toLowerCase()}.gif`,
-    );
+    if (topText && bottomText) {
+      setImgSrc(
+        `${baseUrl.toLowerCase()}/${template.toLowerCase()}/${topText.toLowerCase()}/${bottomText.toLowerCase()}.gif`,
+      );
+    } else if (topText && !bottomText) {
+      setImgSrc(
+        `${baseUrl.toLowerCase()}/${template.toLowerCase()}/${topText.toLowerCase()}//}.gif`,
+      );
+    }
+    //  else if (!topText && bottomText) {
+    //   setImgSrc(
+    //     `${baseUrl.toLowerCase()}/${template.toLowerCase()}//${bottomText.toLowerCase()}/}.gif`,
+    //   );
+    // }
   }
 
   function handleDownload() {
