@@ -76,6 +76,7 @@ export default function MemeGenerator() {
           onChange={(event) => setBottomText(event.currentTarget.value)}
         />
         {/* TEMPLATE INPUT */}
+        <label htmlFor="template">Meme template</label>
         <div className="placeHolderBox">
           <label htmlFor="template">Meme template</label>
         </div>
@@ -122,7 +123,7 @@ export default function MemeGenerator() {
           handleDownload();
         }}
       >
-        Download meme &#x1F929;
+        Download
       </button>
       <pre>{!imgSrc ? ' ' : `from: ${imgSrc}`}</pre>
     </div>
