@@ -2,7 +2,7 @@ import './index.css';
 import React, { useState } from 'react';
 
 export default function MemeGenerator() {
-  const baseUrl = 'https://api.memegen.link/images';
+  const baseUrl = 'https://api.memegen.link/images/';
 
   const [topText, setTopText] = useState('');
   const [bottomText, setBottomText] = useState('');
@@ -15,7 +15,7 @@ export default function MemeGenerator() {
     }
     if (topText && bottomText) {
       setImgSrc(
-        `${baseUrl.toLowerCase()}/${template.toLowerCase()}/${topText
+        `${baseUrl.toLowerCase()}${template.toLowerCase()}/${topText
           .toLowerCase()
           .replace('%', ' ')}/${bottomText
           .toLowerCase()
@@ -23,7 +23,7 @@ export default function MemeGenerator() {
       );
     } else if (topText && !bottomText) {
       setImgSrc(
-        `${baseUrl.toLowerCase()}/${template.toLowerCase()}/${topText
+        `${baseUrl.toLowerCase()}${template.toLowerCase()}/${topText
           .toLowerCase()
           .replace('%', ' ')}//.gif`,
       );
