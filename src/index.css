@@ -80,7 +80,7 @@ input {
   padding: 0.5em;
   flex-grow: 1;
   box-sizing: border-box;
-  outline: none; /* remove the default focus outline or maybe not*/
+  outline: none;
   flex-wrap: wrap;
 }
 
@@ -95,7 +95,7 @@ input {
   font-size: 1em;
   padding: 5px 10px 5px 10px;
   box-sizing: border-box;
-  outline: none; /* remove the default focus outline or maybe not*/
+  outline: none;
   transition: background-color 0.15s ease-in-out;
   margin: 20px;
   border-radius: 2px;

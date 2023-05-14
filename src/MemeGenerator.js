@@ -10,32 +10,32 @@ export default function MemeGenerator() {
   const [imgSrc, setImgSrc] = useState('');
 
   function handleSubmit() {
-    const encTopText = encodeURIComponent(topText);
-    const encBottomText = encodeURIComponent(bottomText);
+    const encodedTopText = encodeURIComponent(topText);
+    const encodedBottomText = encodeURIComponent(bottomText);
 
     if (topText && !bottomText) {
       setImgSrc(
         `${baseUrl.toLowerCase()}${
           template ? template.toLowerCase() : 'buzz'
         }/` +
-          encTopText.toLowerCase() +
+          encodedTopText.toLowerCase() +
           '.gif',
       );
     } else if (topText && bottomText) {
       setImgSrc(
         `${baseUrl.toLowerCase()}${
           template ? template.toLowerCase() : 'buzz'
-        }/${encTopText.toLowerCase()}/${encBottomText.toLowerCase()}.gif`,
+        }/${encodedTopText.toLowerCase()}/${encodedBottomText.toLowerCase()}.gif`,
       );
     }
   }
 
   function handleDownload() {
     const imageUrl = imgSrc;
-    const xhr = new XMLHttpRequest();
-    xhr.open('GET', imageUrl, true);
-    xhr.responseType = 'blob';
-    xhr.onload = function () {
+    const xmlRequest = new XMLHttpRequest();
+    xmlRequest.open('GET', imageUrl, true);
+    xmlRequest.responseType = 'blob';
+    xmlRequest.onload = function () {
       if (this.status === 200) {
         const blob = new Blob([this.response], { type: 'image/gif' });
         const url = window.URL.createObjectURL(blob);
@@ -46,15 +46,13 @@ export default function MemeGenerator() {
         window.URL.revokeObjectURL(url);
       }
     };
-    xhr.send();
+    xmlRequest.send();
   }
 
   return (
     <div className="wrapper">
       <h1 className="title">React Meme Generator</h1>
-      {/* USER INPUT */}
       <div className="structureBox">
-        {/* LABELS */}
         <div className="placeHolderBox">
           <label htmlFor="top">Top text</label>
         </div>
@@ -93,7 +91,6 @@ export default function MemeGenerator() {
         />
       </div>
 
-      {/* GENERATE BUTTON */}
       <button
         className="extraButton"
         data-test-id="generate-meme"
@@ -103,7 +100,6 @@ export default function MemeGenerator() {
       >
         Generate meme &#x1F92A;
       </button>
-      {/* START IMAGE */}
       <img
         data-test-id="meme-image"
         src={
@@ -128,11 +124,3 @@ export default function MemeGenerator() {
     </div>
   );
 }
-
-// useEffect(() => {
-//   async function fetchData() {
-//     // GET request using fetch inside useEffect React hook
-//     await fetch('https://api.npms.io/v2/search?q=react').then((response) =>
-//       response.json(),
-//     );
-//   }
